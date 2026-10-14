@@ -33,6 +33,7 @@ id_ed25519
 *.log
 *.log.*
 /autobuy.lock
+/.run/
 
 # Python environments, caches and coverage
 __pycache__/

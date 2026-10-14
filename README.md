@@ -131,29 +131,36 @@ The cookie is named `steamCountry`, but its YAML key must be `steam_country_cook
 
 ## 运行 / Run
 
-在项目目录中运行。出现手机确认提示时，先在 Steam 手机应用完成确认，再回终端按回车；保持终端可交互。
+填写浏览器 Cookie 后，在项目目录中后台启动。启动脚本优先使用项目的 `.venv`，否则使用 `python3`；关闭终端后继续运行。
 
-Run from the project directory. If prompted, approve the transaction in the Steam mobile app, then press Enter in the terminal. Keep the terminal interactive.
+After filling in the browser cookies, start the process in the background from the project directory. The start script prefers the project's `.venv`, falling back to `python3`. The process keeps running after the terminal closes.
 
 ```bash
-source .venv/bin/activate
-python main.py
+./start.sh
 ```
 
-按 **Ctrl+C** 停止。已提交到 Steam 的买单不会随程序退出自动撤销；重启前先在市场页面核对未完成订单和库存。
+停止由启动脚本启动的进程：
 
-Press **Ctrl+C** to stop. Exiting the script does not cancel orders already submitted to Steam. Check outstanding orders and inventory on the Market page before restarting.
+Stop the process launched by the start script:
+
+```bash
+./stop.sh
+```
+
+重复启动会提示进程已在运行；停止脚本核对 PID 和当前项目路径。已提交到 Steam 的买单不会自动撤销，重启前先在市场页面核对未完成订单和库存。
+
+Starting again reports the existing process. The stop script checks both the PID and the current project path. Orders already submitted to Steam are not cancelled automatically; check outstanding orders and inventory on the Market page before restarting.
 
 在另一个终端查看日志：  
 View logs in another terminal:
 
 ```bash
-tail -f logs/run.log logs/business.log logs/error.log
+tail -f logs/console.log
 ```
 
-`run.log` 记录运行摘要，`business.log` 记录游戏和下单明细，`error.log` 记录错误。目录在运行时创建。
+`console.log` 汇总后台输出及启动错误；`run.log`、`business.log`、`error.log` 分别记录运行摘要、下单明细和错误。日志目录和本地 PID 目录由脚本创建。
 
-`run.log` contains run summaries, `business.log` contains game and order details, and `error.log` contains errors. The directory is created at runtime.
+`console.log` captures background output and startup errors. `run.log`, `business.log` and `error.log` contain run summaries, order details and errors respectively. The scripts create the log and local PID directories.
 
 <a id="progress"></a>
 
