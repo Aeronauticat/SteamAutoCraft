@@ -1,0 +1,59 @@
+# Local configuration and credentials; keep only named examples
+/config/config*
+!/config/config.example.yaml
+/config/secrets*
+!/config/secrets.example.yaml
+
+# Authenticator files and private keys, including local copies
+*.maFile
+*.maFile.*
+*.mafile
+*.mafile.*
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Files containing actual session or private proxy connection details
+/STEAM_API.md*
+/proxy/xray_client*.json*
+/proxy/proxy_info.md*
+/proxy/example_usage.py*
+
+# Keep real datasets local; allow only the reviewed, header-only example
+/data/*
+!/data/STC_set_data_sort.example.csv
+
+# Runtime output
+/logs/
+*.log
+*.log.*
+/autobuy.lock
+
+# Python environments, caches and coverage
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+
+# Local editor settings, backups and operating system files
+.idea/
+.vscode/
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+# Copy to config.yaml and adjust before running main.py.
+# 复制为 config.yaml，按需调整后再运行 main.py。
+# Example values, not enforced defaults. 示例值，不是程序内置默认值。
+
+# HKD cents per additional badge set; 500 = HK$5.00.
+# 每增加一套徽章所需缺卡的成本上限，单位为 HKD 分。
+single_game_limit_hkd_cents: 500
+
+# Pre-scan run budget; not a strict per-order spending cap.
+# 本次运行的预扫描预算，单位为 HKD 分；不是逐笔下单的硬上限。
+run_total_limit_hkd_cents: 2000
+
+# Maximum games with successful order submissions per run.
+# 本次运行最多成功提交买单的游戏数。
+run_game_limit: 3
+
+# Total query attempts, including the first; integer >= 1.
+# 查询最多尝试次数，包含首次请求；整数，至少为 1。
+max_query_retries: 3
+
+# Seconds between selected queries, pages and retries; >= 0.
+# 部分查询、分页和重试间的等待秒数，非全局限速；至少为 0。
+request_interval_seconds: 3
+
+# Seconds after each order attempt, successful or not; >= 0.
+# 每次下单尝试后的等待秒数，成功或失败均等待；至少为 0。
+order_interval_seconds: 3
