@@ -20,13 +20,13 @@ id_ed25519
 
 # Files containing actual session or private proxy connection details
 /STEAM_API.md*
-/proxy/xray_client*.json*
-/proxy/proxy_info.md*
-/proxy/example_usage.py*
+/proxy/
+/test_market_endpoints.py
 
 # Keep real datasets local; allow only the reviewed, header-only example
 /data/*
 !/data/STC_set_data_sort.example.csv
+!/data/steamcardexchange.example.csv
 
 # Runtime output
 /logs/
